@@ -1,5 +1,5 @@
 export default class KeyboardButton {
-  constructor( { main, shiftMode, code, buttonHandler }) {
+  constructor({ main, shiftMode, code, buttonHandler }) {
     this.code = code;
     this.main = main;
     this.shiftMode = shiftMode;
