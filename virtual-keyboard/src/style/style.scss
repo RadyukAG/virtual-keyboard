@@ -1,0 +1,15 @@
+$color-keyboard: #000000;
+$color-key-bg: #353535;
+$color-key: #f8f8f8;
+
+.keyboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    background-color: $color-keyboard;
+}
+
+.keyboard-row {
+    display: flex;
+}
