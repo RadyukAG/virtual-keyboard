@@ -1,6 +1,4 @@
-import {
-  Backspace, Delete, Shift, ArrowRight, ArrowLeft, Space, ChangeLang, Search,
-} from '../buttonHandlers/buttonHandlers';
+import { Backspace, Delete, Shift, ArrowRight, ArrowLeft, Space, ChangeLang, Search } from '../../shared/buttonHandlers';
 
 const enKeys = [
   {

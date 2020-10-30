@@ -55,7 +55,7 @@ module.exports = {
   name: 'momentum',
   context: path.resolve(__dirname, './'),
   mode: 'development',
-  entry: ['@babel/polyfill', './src/js/index.js'],
+  entry: { index: './src/js/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
   },

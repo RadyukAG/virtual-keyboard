@@ -1,15 +1,105 @@
-$color-keyboard: #000000;
-$color-key-bg: #353535;
-$color-key: #f8f8f8;
+$color-keyboard: #eee;
+$color-key-bg: #bbb;
+$color-key: #808080;
 
 .keyboard {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px 30px;
     display: grid;
     grid-template-rows: repeat(5, auto);
+    grid-row-gap: 20px;
     background-color: $color-keyboard;
 }
 
-.keyboard-row {
+.keyboard__row {
     display: flex;
+}
+
+[data-key-code],
+[data-code] {
+    margin-left: 20px;
+    background-color: $color-key-bg;
+}
+
+[data-key-code] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 40px;
+
+}
+
+.key {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    width: 29px;
+    height: 29px;
+    background-color: #839496;
+    border-radius: 3px;
+    transition: all .2s ease;
+    user-select: none;
+    cursor: pointer;
+}
+
+.key.active {
+    transform: translateY(3px);
+}
+
+@media (max-width: 559px) {
+    .keyboard {
+        display: none;
+    }
+}
+
+[data-code="ShiftLeft"] {
+    width: 117px;
+ //   background-image: url(../img/shift.png);
+    background-repeat: no-repeat;
+    background-size: 39% 100%;
+    background-position: center;
+}
+
+[data-code="ShiftLeft"].active {
+    background-color: #949683;
+}
+
+[data-code="Delete"] {
+    width: 50px;
+}
+
+[data-code="Backspace"] {
+    width: 84px;
+}
+
+[data-code="Enter"] {
+    width: 85px;
+}
+
+[data-code="ChangeLang"] {
+    width: 120px;
+}
+
+[data-code="Space"] {
+    width: 205px;
+}
+
+[data-code="ArrowLeft"] {
+    width: 76px;
+  //  background-image: url(../img/arrowLeft.png);
+    background-repeat: no-repeat;
+    background-size: 39% 100%;
+    background-position: center;
+}
+
+[data-code="ArrowRight"] {
+    width: 76px;
+  //  background-image: url(../img/arrowRight.png);
+    background-repeat: no-repeat;
+    background-size: 39% 100%;
+    background-position: center;
 }
