@@ -2,38 +2,38 @@ import createKeyboard from './keyboard/createKeyboard';
 import '../style/style.scss';
 import '../style/normalize.css';
 import { Shift } from './shared/buttonHandlers';
+import shiftMode from './shared/shiftMode';
 
-const elements = {};
+const elements = {
+  keyboard: document.querySelector('.keyboard'),
+};
 document.addEventListener('DOMContentLoaded', () => {
   createKeyboard();
   elements.input = document.querySelector('.input-area');
-  elements.keyboard = document.querySelector('.keyboard');
   elements.shift = document.querySelector('[data-code="ShiftLeft"]');
   elements.keyButtons = document.querySelectorAll('[data-key-code]');
   elements.specButtons = document.querySelectorAll('[data-code]');
+  elements.shift.addEventListener('click', shiftMode);
+  shiftMode(elements.shift);
 });
 
-function shiftMode(e) {
-  let target;
-  if (e.target) {
-    target = e.target.dataset.code === 'ShiftLeft' ? e.target : e.target.closest('div');
-  } else {
-    target = e;
-  }
-  const isShift = target.classList.contains('active');
-  if (!isShift) {
-    elements.keyButtons.forEach((el) => {
-      el.querySelector('.main').classList.remove('hidden');
-      el.querySelector('.shift-mode').classList.add('hidden');
+elements.keyboard.addEventListener('click', (e) => {
+  if (e.target.dataset.keyCode || e.target.closest('div').dataset.keyCode) {
+    const target = e.target.dataset.keyCode ? e.target : e.target.closest('div');
+    target.classList.add('active');
+    target.addEventListener('mouseleave', () => {
+      target.classList.remove('active');
     });
+    const { input } = elements;
+    const pos = input.selectionStart;
+    let text = input.value;
+    text = `${text.slice(0, pos)}${e.target.innerText}${text.slice(pos)}`;
+    input.value = text;
+    input.focus();
+    input.selectionStart = pos + 1;
+    input.selectionEnd = pos + 1;
   }
-  else {
-    elements.keyButtons.forEach((el) => {
-      el.querySelector('.shift-mode').classList.remove('hidden');
-      el.querySelector('.main').classList.add('hidden');
-    });
-  }
-}
+});
 
 document.onkeydown = (e) => {
   if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {

@@ -1,7 +1,7 @@
 import ruKeys from '../data/keyboardKeys/ruKeys';
 import enKeys from '../data/keyboardKeys/enKeys';
 
-const input = document.querySelector('.search-form__input');
+const input = document.querySelector('.input-area');
 
 function moveCursorTo(pos) {
   input.selectionStart = pos;
@@ -10,7 +10,7 @@ function moveCursorTo(pos) {
 
 function Backspace() {
   input.focus();
-  const {value, selectionStart, selectionEnd} = input;
+  const { value, selectionStart, selectionEnd } = input;
   if (selectionStart === 0) {
     return;
   }
