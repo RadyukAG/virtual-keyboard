@@ -7,10 +7,14 @@ html {
 }
 
 main {
+    position: relative;
     padding: 0 10px;
+    overflow: hidden;
+    min-height: 100vh;
 }
 
 .keyboard {
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 30px;
@@ -19,13 +23,64 @@ main {
     grid-row-gap: 20px;
     background-color: $color-keyboard;
     font-size: 2.3rem;
+    animation: show 1s ease-in;
+    animation: hide 1s ease-out;
+}
+
+@keyframes show {
+    0% {
+        bottom: -320px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes hide {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -320px;
+    }
+}
+
+.keyboard.hide {
+    position: absolute;
+    bottom: -320px;
+    width: 100%;
+}
+
+.show-hide-btn {
+    display: flex;
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+
+.show-hide-btn__keyboard-icon {
+    margin-right: 5px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-image: url('../../assets/icons/keyboard-key.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.show-hide-btn__arrow-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-image: url('../../assets/icons/expand-arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .keyboard__row {
     display: flex;
-}
-
-.keyboard__row:last-child {
     height: 40px;
 }
 
@@ -78,9 +133,9 @@ main {
 }
 
 [data-code="ShiftLeft"] {
- //   background-image: url(../img/shift.png);
+    background-image: url('../../assets/icons/shift.png');
     background-repeat: no-repeat;
-    background-size: 39% 100%;
+    background-size: 34px 34px;
     background-position: center;
 }
 
@@ -89,17 +144,35 @@ main {
 }
 
 [data-code="ArrowLeft"] {
-  //  background-image: url(../img/arrowLeft.png);
+    background-image: url('../../assets/icons/arrowLeft.png');
     background-repeat: no-repeat;
-    background-size: 39% 100%;
+    background-size: 34px 34px;
     background-position: center;
+    flex-basis: 50%;
 }
 
 [data-code="ArrowRight"] {
-  //  background-image: url(../img/arrowRight.png);
+    background-image: url('../../assets/icons/arrowRight.png');
     background-repeat: no-repeat;
-    background-size: 39% 100%;
+    background-size: 34px 34px;
     background-position: center;
+    flex-basis: 50%;
+}
+
+[data-code="Sound"] {
+    background-image: url('../../assets/icons/sound-on.svg');
+    background-repeat: no-repeat;
+    background-size: 34px 34px;
+    background-position: center;
+    flex-basis: 50%;
+}
+
+[data-code="Sound"].sound-off {
+    background-image: url('../../assets/icons/sound-off.svg');
+}
+
+[data-code="Space"] {
+    flex-basis: 100%;
 }
 
 .hidden {

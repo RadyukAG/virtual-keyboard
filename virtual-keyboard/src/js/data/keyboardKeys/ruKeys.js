@@ -320,9 +320,9 @@ const ruKeys = [
     code: 'ArrowRight',
   },
   {
-    main: 'Win',
+    main: '',
     shiftMode: null,
-    code: 'Win',
+    code: 'Sound',
   },
 ];
 

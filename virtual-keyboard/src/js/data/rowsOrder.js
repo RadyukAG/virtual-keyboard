@@ -3,7 +3,7 @@ const rowsOrder = [
   ['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backspace'],
   ['KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash', 'Enter'],
   ['ShiftLeft', 'IntlBackslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash'],
-  ['ChangeLang', 'Space', 'ArrowLeft', 'ArrowRight'],
+  ['ChangeLang', 'Sound', 'Space', 'ArrowLeft', 'ArrowRight'],
 ];
 
 export default rowsOrder;

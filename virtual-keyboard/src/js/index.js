@@ -3,6 +3,7 @@ import '../style/style.scss';
 import '../style/normalize.css';
 import { Shift } from './shared/buttonHandlers';
 import shiftMode from './shared/shiftMode';
+import {initializeSounds, playSound} from './buttonSounds/buttonSound';
 
 const elements = {
   keyboard: document.querySelector('.keyboard'),
@@ -15,9 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.specButtons = document.querySelectorAll('[data-code]');
   elements.shift.addEventListener('click', shiftMode);
   shiftMode(elements.shift);
+  initializeSounds();
 });
 
 elements.keyboard.addEventListener('click', (e) => {
+  if (document.querySelector('[data-code="Sound"]').dataset.isSoundOn) {
+    playSound();
+  }
   if (e.target.dataset.keyCode || e.target.closest('div').dataset.keyCode) {
     const target = e.target.dataset.keyCode ? e.target : e.target.closest('div');
     target.classList.add('active');
@@ -36,6 +41,7 @@ elements.keyboard.addEventListener('click', (e) => {
 });
 
 document.onkeydown = (e) => {
+  playSound();
   if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
     Shift(elements.shift);
     shiftMode(elements.shift);

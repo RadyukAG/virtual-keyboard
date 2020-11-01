@@ -1,4 +1,5 @@
 import { Backspace, Delete, Shift, ArrowRight, ArrowLeft, Space, ChangeLang, Search } from '../../shared/buttonHandlers';
+import buttonSoundHandler from '../../buttonSounds/buttonSoundHandler';
 
 const enKeys = [
   {
@@ -260,7 +261,7 @@ const enKeys = [
     code: 'Slash',
   },
   {
-    main: 'Change language',
+    main: 'Change language: EN',
     shiftMode: null,
     code: 'ChangeLang',
     buttonHandler: ChangeLang,
@@ -288,6 +289,12 @@ const enKeys = [
     shiftMode: null,
     code: 'Enter',
     buttonHandler: Search,
+  },
+  {
+    main: '',
+    shiftMode: null,
+    code: 'Sound',
+    buttonHandler: buttonSoundHandler,
   },
 ];
 

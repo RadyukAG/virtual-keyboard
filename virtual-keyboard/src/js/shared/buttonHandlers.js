@@ -77,6 +77,7 @@ function Shift(e) {
 function ChangeLang(e) {
   const target = e.target.tagName === 'div' ? e.target : e.target.closest('div');
   target.dataset.lang = target.dataset.lang === 'ru' ? 'en' : 'ru';
+  target.innerText = `Change language: ${target.dataset.lang.toUpperCase()}`;
   const keyButtons = document.querySelectorAll('[data-key-code]');
   const keysArray = target.dataset.lang === 'ru' ? ruKeys : enKeys;
   keyButtons.forEach((el) => {
