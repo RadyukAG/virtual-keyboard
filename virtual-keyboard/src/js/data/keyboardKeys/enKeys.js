@@ -1,5 +1,6 @@
-import { Backspace, Delete, Shift, ArrowRight, ArrowLeft, Space, ChangeLang, Search } from '../../shared/buttonHandlers';
+import { Backspace, Delete, Shift, ArrowRight, ArrowLeft, Space, ChangeLang, enter } from '../../shared/buttonHandlers';
 import buttonSoundHandler from '../../buttonSounds/buttonSoundHandler';
+import capsLockHandler from '../../shared/capsLockHandler';
 
 const enKeys = [
   {
@@ -288,13 +289,19 @@ const enKeys = [
     main: 'Enter',
     shiftMode: null,
     code: 'Enter',
-    buttonHandler: Search,
+    buttonHandler: enter,
   },
   {
     main: '',
     shiftMode: null,
     code: 'Sound',
     buttonHandler: buttonSoundHandler,
+  },
+  {
+    main: 'Caps Lock',
+    shiftMode: null,
+    code: 'Caps Lock',
+    buttonHandler: capsLockHandler,
   },
 ];
 

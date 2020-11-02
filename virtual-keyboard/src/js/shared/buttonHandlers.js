@@ -4,8 +4,14 @@ import enKeys from '../data/keyboardKeys/enKeys';
 const input = document.querySelector('.input-area');
 
 function moveCursorTo(pos) {
-  input.selectionStart = pos;
-  input.selectionEnd = pos;
+  input.focus();
+  input.setSelectionRange(pos, pos);
+}
+
+function enter() {
+  const { value, selectionStart: start, selectionEnd: end} = input;
+  input.value = `${value.slice(0, start)}\n${value.slice(end)}`;
+  moveCursorTo(start + 1);
 }
 
 function Backspace() {
@@ -87,8 +93,4 @@ function ChangeLang(e) {
   });
 }
 
-function Search() {
-  document.querySelector('.search-form .button').click();
-}
-
-export {Backspace, Delete, Shift, Space, ArrowRight, ArrowLeft, ChangeLang, Search}
+export {Backspace, Delete, Shift, Space, ArrowRight, ArrowLeft, ChangeLang, enter}
