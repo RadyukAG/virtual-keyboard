@@ -4,6 +4,7 @@ import '../style/normalize.css';
 import { Shift } from './shared/buttonHandlers';
 import shiftMode from './shared/shiftMode';
 import {initializeSounds, playSound} from './buttonSounds/buttonSound';
+import '../js/speechRecognition/speechRecognition';
 
 const elements = {
   keyboard: document.querySelector('.keyboard'),
@@ -23,12 +24,12 @@ elements.keyboard.addEventListener('click', (e) => {
   if (document.querySelector('[data-code="Sound"]').dataset.isSoundOn) {
     playSound();
   }
+  const activeButton = e.target.closest('div');
+  activeButton.classList.add('active');
+  activeButton.addEventListener('mouseleave', () => {
+    activeButton.classList.remove('active');
+  });
   if (e.target.dataset.keyCode || e.target.closest('div').dataset.keyCode) {
-    const target = e.target.dataset.keyCode ? e.target : e.target.closest('div');
-    target.classList.add('active');
-    target.addEventListener('mouseleave', () => {
-      target.classList.remove('active');
-    });
     const { input } = elements;
     const pos = input.selectionStart;
     let text = input.value;

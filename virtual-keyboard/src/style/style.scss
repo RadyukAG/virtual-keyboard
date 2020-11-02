@@ -90,6 +90,7 @@ main {
     width: 400px;
     height: 200px;
     font-size: 1.5rem;
+    resize: none;
 }
 
 [data-key-code],
@@ -193,4 +194,22 @@ main {
     [data-code] {
         margin-left: 1%;
     }
+}
+
+.input-container {
+    position: relative;
+}
+
+.mic-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: calc((100vw - 20px - 480px) / 2);
+    background-image: url("../../assets/icons/mute.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
