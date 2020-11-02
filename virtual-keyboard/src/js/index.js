@@ -44,7 +44,7 @@ elements.keyboard.addEventListener('click', (e) => {
 document.onkeydown = (e) => {
   playSound();
   if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
-    Shift(elements.shift);
+    Shift(elements.shift, true);
     shiftMode(elements.shift);
   }
   let button = Array.prototype.find.call(elements.keyButtons, (el => el.dataset.keyCode === e.code));

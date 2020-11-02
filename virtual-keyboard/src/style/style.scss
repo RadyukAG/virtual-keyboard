@@ -93,9 +93,13 @@ main {
     resize: none;
 }
 
+[data-key-code]:not(:first-of-type),
+[data-code]:not(:first-of-type) {
+    margin-left: 2%;
+}
+
 [data-key-code],
 [data-code] {
-    margin-left: 2%;
     background-color: $color-key-bg;
     box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
     color: $color-keyboard;
@@ -190,8 +194,8 @@ main {
         font-size: 1.5rem;
     }
 
-    [data-key-code],
-    [data-code] {
+    [data-key-code]:not(:first-of-type),
+    [data-code]:not(:first-of-type) {
         margin-left: 1%;
     }
 }

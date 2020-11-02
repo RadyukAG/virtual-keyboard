@@ -70,12 +70,15 @@ function ArrowRight() {
   input.focus();
 }
 
-function Shift(e) {
+function Shift(e, isDown) {
   let target;
   if (e.dataset && e.dataset.code === 'ShiftLeft') {
     target = e;
   } else {
     target = e.target.tagName === 'div' ? e.target : e.target.closest('div');
+  }
+  if (target.classList.contains('active') && isDown) {
+    return;
   }
   target.classList.toggle('active');
 }
