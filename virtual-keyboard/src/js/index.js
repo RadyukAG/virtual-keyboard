@@ -5,6 +5,7 @@ import { Shift } from './shared/buttonHandlers';
 import shiftMode from './shared/shiftMode';
 import {initializeSounds, playSound} from './buttonSounds/buttonSound';
 import '../js/speechRecognition/speechRecognition';
+import capsLockHandler from './shared/capsLockHandler';
 
 const elements = {
   keyboard: document.querySelector('.keyboard'),
@@ -47,6 +48,9 @@ document.onkeydown = (e) => {
     Shift(elements.shift, true);
     shiftMode(elements.shift);
   }
+  if (e.code === 'CapsLock') {
+    capsLockHandler();
+  }
   let button = Array.prototype.find.call(elements.keyButtons, (el => el.dataset.keyCode === e.code));
   if (!button) {
       button = Array.prototype.find.call(elements.specButtons, ((el) => el.dataset.code === e.code));
@@ -60,6 +64,9 @@ document.onkeyup = (e) => {
   if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
     elements.shift.classList.remove('active');
     shiftMode(elements.shift);
+  }
+  if (e.code === 'CapsLock') {
+    return;
   }
   let button = Array.prototype.find.call(elements.keyButtons, ((el) => el.dataset.keyCode === e.code));
   if (!button) {
