@@ -96,4 +96,4 @@ function ChangeLang(e) {
   });
 }
 
-export { Backspace, Delete, Shift, Space, ArrowRight, ArrowLeft, ChangeLang, enter }
+export { Backspace, Delete, Shift, Space, ArrowRight, ArrowLeft, ChangeLang, enter, moveCursorTo }
