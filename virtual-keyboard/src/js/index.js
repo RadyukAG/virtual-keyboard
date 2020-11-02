@@ -26,6 +26,9 @@ elements.keyboard.addEventListener('click', (e) => {
     playSound();
   }
   const activeButton = e.target.closest('div');
+  if (activeButton.dataset.code === 'Caps Lock') {
+    return;
+  }
   activeButton.classList.add('active');
   activeButton.addEventListener('mouseleave', () => {
     activeButton.classList.remove('active');
@@ -49,7 +52,8 @@ document.onkeydown = (e) => {
     shiftMode(elements.shift);
   }
   if (e.code === 'CapsLock') {
-    capsLockHandler();
+    capsLockHandler(e);
+    return;
   }
   let button = Array.prototype.find.call(elements.keyButtons, (el => el.dataset.keyCode === e.code));
   if (!button) {
