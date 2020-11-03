@@ -1,7 +1,7 @@
-function capsLockHandler(e) {
+function capsLockHandler() {
   const target = document.querySelector('[data-code="Caps Lock"]');
   target.classList.toggle('active');
-  const active = target.dataset.active;
+  const { active } = target.dataset;
   let keyButtons = Array.from(document.querySelectorAll('[data-key-code]'));
   keyButtons = keyButtons.filter((el) => el.dataset.keyCode.startsWith('Key'));
   if (!active) {
