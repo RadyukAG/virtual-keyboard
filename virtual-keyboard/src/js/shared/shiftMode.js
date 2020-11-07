@@ -1,5 +1,6 @@
 function shiftMode(e) {
   let target;
+  console.log(e);
   if (e.target) {
     target = e.target.dataset.code === 'ShiftLeft' ? e.target : e.target.closest('div');
   } else {
