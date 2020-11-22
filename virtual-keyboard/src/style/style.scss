@@ -12,14 +12,20 @@ body {
 
 main {
     position: relative;
-    padding: 0 10px;
+    box-sizing: border-box;
+    padding: 20px 10px 0;
     overflow: hidden;
     min-height: 100vh;
 }
 
 .keyboard {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     max-width: 1200px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
     margin: 0 auto;
     padding: 20px 30px;
     display: grid;
@@ -28,7 +34,6 @@ main {
     background-color: $color-keyboard;
     font-size: 2.3rem;
     animation: show 1s ease-in;
-
 }
 
 @keyframes show {
@@ -54,7 +59,6 @@ main {
 .keyboard.hide {
     left: 0;
     right: 0;
-    position: absolute;
     bottom: -320px;
     width: 100%;
     animation: hide 1s ease-out;
