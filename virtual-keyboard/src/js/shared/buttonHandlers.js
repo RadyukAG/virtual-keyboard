@@ -9,7 +9,7 @@ function moveCursorTo(pos) {
 }
 
 function enter() {
-  const { value, selectionStart: start, selectionEnd: end} = input;
+  const { value, selectionStart: start, selectionEnd: end } = input;
   input.value = `${value.slice(0, start)}\n${value.slice(end)}`;
   moveCursorTo(start + 1);
 }
@@ -53,7 +53,7 @@ function Space() {
 }
 
 function ArrowLeft() {
-  const {selectionStart} = input;
+  const { selectionStart } = input;
   input.focus();
   if (selectionStart > 0) {
     moveCursorTo(selectionStart - 1);
@@ -96,4 +96,4 @@ function ChangeLang(e) {
   });
 }
 
-export { Backspace, Delete, Shift, Space, ArrowRight, ArrowLeft, ChangeLang, enter, moveCursorTo }
+export { Backspace, Delete, Shift, Space, ArrowRight, ArrowLeft, ChangeLang, enter, moveCursorTo };

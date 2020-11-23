@@ -1,4 +1,4 @@
-import createElement from '../shared/createElement';
+import { createElement } from '../shared/createElement';
 import showHideButtonHandler from './showHideButtonHandler';
 
 function createShowHideButton() {
